@@ -41,8 +41,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 
-#Changes by Chandana#
+## #Changes by Chandana#
 
 
 While deploying, u need to override the install in the deploy settings and write npm install --force, else there will be a build error
+
+
 After adding the code to the github, u need to change the access link of jsonserver wherever used, to the access link of jsonserver thats deployed on vercel
