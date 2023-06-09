@@ -68,6 +68,7 @@ export class ProductDetailsComponent implements OnInit {
     })
   }
 
+  //just for learning purpose
   DestroyComponent(){
     this.destroy = false;
   }
