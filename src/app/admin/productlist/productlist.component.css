@@ -1,0 +1,44 @@
+.imgc{
+    float:left;
+    margin-left:60px;
+    width:600px;
+    height: 810px;
+}
+
+.formc{
+    margin-left:680px;
+}
+
+.Bann1{
+    font-family: "Garamond", Times, serif;
+}
+
+.input-group-text {
+    display: block
+}
+
+.input-group {
+    width: 86%;
+}
+
+table,
+th,
+td {
+    border: 2px solid black;
+    text-align: center;
+}
+
+td {
+    padding: 12px;
+    background-color: #d6d1fd;
+}
+
+th{
+    padding: 12px;
+    background-color: #6f6db9;
+}
+
+.imgtop{
+    width: 50px;
+    height: 50px;
+}

@@ -1,0 +1,301 @@
+<div>
+    <!--Add products Banner begins-->
+    <br>
+    <div style="color:black; background-color:black; height: 3px; width: 50%;margin-left:300px;"
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center mb-1 border-bottom"></div>
+    <button class="btn btn-secondary"  routerLink="/admin/admindashboard" style="float: right; margin-Right:10px">Back</button>
+        <h1 class="Bann1" style="font-size:3vw; text-align: center;">Add Products</h1>
+    <div style="color:black; background-color:black; height: 3px; width: 50%;margin-left:300px;"
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center mb-1 border-bottom"></div>
+    <br>
+    <!--Add products Banner ends-->
+
+
+    <!--Side image-->
+    <img src="assets/images/img33.gif" asp-append-version="true" class="imgc">
+
+    <!--Add products Form starts-->
+    <form [formGroup]="productsForm" class="formc" (ngSubmit)="postProducts(productsForm.value)">
+        <div class="form-group">
+            <label>Name</label>
+            <input [class.is-invalid]="productsForm.get('name')?.invalid &&
+            productsForm.get('name')?.touched" formControlName="name" style="width:500px;" name="name"
+                class="form-control" type="text">
+
+            <div *ngIf="productsForm.get('name')?.invalid && productsForm.get('name')?.touched">
+                <small *ngIf="productsForm.get('name')?.errors?.['required']" class="text-danger">Name required</small>
+                <small *ngIf="productsForm.get('name')?.errors?.['minlength']" class="text-danger">Valid Name
+                    required</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Description</label>
+            <input [class.is-invalid]="productsForm.get('description')?.invalid &&
+            productsForm.get('description')?.touched" formControlName="description" style="width:500px;"
+                name="description" class="form-control" type="text">
+
+            <div *ngIf="productsForm.get('description')?.invalid && productsForm.get('description')?.touched">
+                <small *ngIf="productsForm.get('description')?.errors?.['required']" class="text-danger">Description
+                    required</small>
+                <small *ngIf="productsForm.get('description')?.errors?.['minlength']" class="text-danger">Valid
+                    Description required</small>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label>Upload Display Images</label>
+            <div class="input-group">
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                        1
+                    </div>
+                </div>
+                <input [class.is-invalid]="productsForm.get('img1')?.invalid &&
+                productsForm.get('img1')?.touched" formControlName="img1" style="width:400px;" name="img1" class="form-control" type="text">
+            </div>
+
+            <div class="input-group">
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                        2
+                    </div>
+                </div>
+                <input [class.is-invalid]="productsForm.get('img2')?.invalid &&
+                productsForm.get('img2')?.touched" formControlName="img2" style="width:400px;" name="img2" class="form-control" type="text">
+            </div>
+
+            <div class="input-group">
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                        3
+                    </div>
+                </div>
+                <input [class.is-invalid]="productsForm.get('img3')?.invalid &&
+                productsForm.get('img3')?.touched" formControlName="img3" style="width:400px;" name="img3" class="form-control" type="text">
+            </div>
+
+            <div class="input-group">
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                        4
+                    </div>
+                </div>
+            <input [class.is-invalid]="productsForm.get('img4')?.invalid &&
+            productsForm.get('img4')?.touched" formControlName="img4" style="width:400px;" name="img4" class="form-control" type="text">
+            </div>
+
+            <div
+                *ngIf="(productsForm.get('img1') || productsForm.get('img2') || productsForm.get('img3') || productsForm.get('img4'))?.invalid && (productsForm.get('img1') || productsForm.get('img2') || productsForm.get('img3') || productsForm.get('img4'))?.touched">
+                <small
+                    *ngIf="(productsForm.get('img1') || productsForm.get('img2') || productsForm.get('img3') || productsForm.get('img4'))?.errors?.['required']"
+                    class="text-danger">Image is required</small>
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <label>Brand</label>
+            <input [class.is-invalid]="productsForm.get('brand')?.invalid &&
+            productsForm.get('brand')?.touched" formControlName="brand" style="width:500px;" name="brand"
+                class="form-control" type="text">
+
+            <div *ngIf="productsForm.get('brand')?.invalid && productsForm.get('brand')?.touched">
+                <small *ngIf="productsForm.get('brand')?.errors?.['required']" class="text-danger">Brand
+                    required</small>
+                <small *ngIf="productsForm.get('brand')?.errors?.['minlength']" class="text-danger">Valid Brand
+                    required</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Category</label>
+            <input [class.is-invalid]="productsForm.get('category')?.invalid &&
+            productsForm.get('category')?.touched" formControlName="category" style="width:500px;" name="category"
+                class="form-control" type="text">
+
+            <div *ngIf="productsForm.get('category')?.invalid && productsForm.get('category')?.touched">
+                <small *ngIf="productsForm.get('category')?.errors?.['required']" class="text-danger">Category
+                    required</small>
+                <small *ngIf="productsForm.get('category')?.errors?.['minlength']" class="text-danger">Valid Category
+                    required</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Gender</label>
+            <div class="form-check">
+                <input class="form-check-input" formControlName="gender" type="radio" name="gender" value="Men">
+                <label class="form-check-label">Men</label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" formControlName="gender" type="radio" name="gender" value="Women">
+                <label class="form-check-label">Women</label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" formControlName="gender" type="radio" name="gender" value="Boy">
+                <label class="form-check-label">Boy</label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" formControlName="gender" type="radio" name="gender" value="Girl">
+                <label class="form-check-label">Girl</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Price</label>
+            <input [class.is-invalid]="productsForm.get('price')?.invalid &&
+            productsForm.get('price')?.touched" formControlName="price" style="width:500px;" name="price"
+                class="form-control" type="text">
+
+            <div *ngIf="productsForm.get('price')?.invalid && productsForm.get('price')?.touched">
+                <small *ngIf="productsForm.get('price')?.errors?.['required']" class="text-danger">Price
+                    required</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Type</label>
+            <input [class.is-invalid]="productsForm.get('type')?.invalid &&
+            productsForm.get('type')?.touched" formControlName="type" style="width:500px;" name="type"
+                class="form-control" type="text">
+
+            <div *ngIf="productsForm.get('type')?.invalid && productsForm.get('type')?.touched">
+                <small *ngIf="productsForm.get('type')?.errors?.['required']" class="text-danger">Type required</small>
+                <small *ngIf="productsForm.get('type')?.errors?.['minlength']" class="text-danger">Valid Type
+                    required</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Stars</label>
+            <input [class.is-invalid]="productsForm.get('star')?.invalid &&
+            productsForm.get('star')?.touched" formControlName="star" style="width:500px;" name="star"
+                class="form-control" type="text">
+
+            <div *ngIf="productsForm.get('star')?.invalid && productsForm.get('star')?.touched">
+                <small *ngIf="productsForm.get('star')?.errors?.['required']" class="text-danger">Stars required</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Ratings</label>
+            <input [class.is-invalid]="productsForm.get('ratings')?.invalid &&
+            productsForm.get('ratings')?.touched" formControlName="ratings" style="width:500px;" name="ratings"
+                class="form-control" type="text">
+
+            <div *ngIf="productsForm.get('ratings')?.invalid && productsForm.get('ratings')?.touched">
+                <small *ngIf="productsForm.get('ratings')?.errors?.['required']" class="text-danger">Ratings
+                    required</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Discounted Price</label>
+            <input [class.is-invalid]="productsForm.get('discountedprice')?.invalid &&
+            productsForm.get('discountedprice')?.touched" formControlName="discountedprice" style="width:500px;"
+                name="discountedprice" class="form-control" type="text">
+
+            <div *ngIf="productsForm.get('discountedprice')?.invalid && productsForm.get('discountedprice')?.touched">
+                <small *ngIf="productsForm.get('discountedprice')?.errors?.['required']" class="text-danger">Discounted
+                    Price required</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Seller</label>
+            <input [class.is-invalid]="productsForm.get('seller')?.invalid &&
+            productsForm.get('seller')?.touched" formControlName="seller" style="width:500px;" name="seller"
+                class="form-control" type="text">
+
+            <div *ngIf="productsForm.get('seller')?.invalid && productsForm.get('seller')?.touched">
+                <small *ngIf="productsForm.get('seller')?.errors?.['required']" class="text-danger">Seller
+                    required</small>
+                <small *ngIf="productsForm.get('seller')?.errors?.['minlength']" class="text-danger">Valid Seller
+                    equired</small>
+            </div>
+        </div>
+
+
+        <!--Buttons-->
+        <div>
+            <br>
+            <input class="btn btn-success" type="submit" value="{{editmode ? 'Update Product' : 'Add Product'}}">&nbsp;
+            <input class="btn btn-primary" type="reset" value="Reset">
+        </div>
+
+    </form>
+    <!--Add products form ends-->
+
+    <!--Product List Banner begins-->
+    <br><br><br>
+    <div style="color:black; background-color:black; height: 3px; width: 50%;margin-left:300px;"
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center mb-1 border-bottom"></div>
+    <h1 class="Bann1" style="font-size:3vw; text-align: center;">Product List</h1>
+    <div style="color:black; background-color:black; height: 3px; width: 50%;margin-left:300px;"
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center mb-1 border-bottom"></div>
+    <br>
+    <!--Product List Banner ends-->
+
+    <!--Product list table starts-->
+    <table style="width: 2000px;">
+        <thead>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Images</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Brand</th>
+            <th>Category</th>
+            <th>Gender</th>
+            <th>Type</th>
+            <th>Star</th>
+            <th>Ratings</th>
+            <th>Discounted price</th>
+            <th>Seller</th>
+            <th style="width: 150px;">Edit/Delete</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let products of prods">
+                <td>{{products.id}}</td>
+                <td>{{products.name}}</td>
+                <td>
+                    <div class="form-group row">
+                        <img src={{products.img1}} height="150px" width="200px">
+                        <div class="form-group col">
+                            <img class="imgtop" src={{products.img2}} height="100px" width="100px">
+                            <img class="imgtop" src={{products.img3}} height="100px" width="100px">
+                            <img class="imgtop" src={{products.img4}} height="100px" width="100px">
+                        </div>
+
+                    </div>
+                </td>
+                <td>{{products.description}}</td>
+                <td>{{products.price}}</td>
+                <td>{{products.brand}}</td>
+                <td>{{products.category}}</td>
+                <td>{{products.gender}}</td>
+                <td>{{products.type}}</td>
+                <td>{{products.star}}</td>
+                <td>{{products.ratings}}</td>
+                <td>{{products.discountedprice}}</td>
+                <td>{{products.seller}}</td>
+                <td>
+                    <a class="btn btn-success" (click)="updateProducts(products.id)"><i class="fas fa-edit"></i></a>&nbsp;
+                    <a class="btn btn-danger" (click)="deleteProducts(products.id)"><i
+                            class="fa-sharp fa-solid fa-trash"></i></a>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+    <!--Product list table ends-->
+</div>
+
+
+<!--Adjustments starts-->
+<br><br><br><br><br><br><br><br><br><br><br>
+<!--Adjustments ends-->
